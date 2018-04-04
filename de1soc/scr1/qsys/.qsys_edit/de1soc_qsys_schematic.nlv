@@ -1,0 +1,36 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst de1soc_qsys.avl_uart -pg 1 -lvl 3 -y 130
+preplace inst de1soc_qsys.clk_sdram -pg 1 -lvl 1 -y 870
+preplace inst de1soc_qsys -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst de1soc_qsys.onchip_ram -pg 1 -lvl 3 -y 290
+preplace inst de1soc_qsys.avl_imem -pg 1 -lvl 2 -y 690
+preplace inst de1soc_qsys.default_slave -pg 1 -lvl 3 -y 210
+preplace inst de1soc_qsys.avl_dmem -pg 1 -lvl 2 -y 570
+preplace inst de1soc_qsys.clk -pg 1 -lvl 1 -y 650
+preplace inst de1soc_qsys.pio_hex_5_4 -pg 1 -lvl 3 -y 570
+preplace inst de1soc_qsys.bld_id -pg 1 -lvl 3 -y 30
+preplace inst de1soc_qsys.pio_sw -pg 1 -lvl 3 -y 770
+preplace inst de1soc_qsys.pio_hex_3_2 -pg 1 -lvl 3 -y 470
+preplace inst de1soc_qsys.pio_led -pg 1 -lvl 3 -y 670
+preplace inst de1soc_qsys.pio_hex_1_0 -pg 1 -lvl 3 -y 370
+preplace inst de1soc_qsys.sdram -pg 1 -lvl 3 -y 870
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)de1soc_qsys.pio_hex_1_0,(SLAVE)pio_hex_1_0.external_connection) 1 0 3 NJ 400 NJ 400 NJ
+preplace netloc POINT_TO_POINT<net_container>de1soc_qsys</net_container>(SLAVE)sdram.clk,(MASTER)clk_sdram.out_clk) 1 1 2 NJ 880 N
+preplace netloc INTERCONNECT<net_container>de1soc_qsys</net_container>(SLAVE)pio_hex_5_4.s1,(SLAVE)pio_hex_3_2.s1,(SLAVE)onchip_ram.s1,(SLAVE)pio_led.s1,(MASTER)avl_imem.m0,(SLAVE)sdram.s1,(MASTER)avl_dmem.m0,(SLAVE)default_slave.axi_error_if,(SLAVE)bld_id.s1,(SLAVE)pio_sw.s1,(SLAVE)avl_uart.s0,(SLAVE)pio_hex_1_0.s1) 1 2 1 430
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)pio_sw.external_connection,(SLAVE)de1soc_qsys.pio_sw) 1 0 3 NJ 800 NJ 800 NJ
+preplace netloc FAN_OUT<net_container>de1soc_qsys</net_container>(SLAVE)avl_imem.reset,(SLAVE)pio_hex_5_4.reset,(SLAVE)default_slave.clk_reset,(SLAVE)pio_hex_1_0.reset,(MASTER)clk.clk_reset,(SLAVE)pio_sw.reset,(SLAVE)avl_uart.reset,(SLAVE)onchip_ram.reset1,(SLAVE)sdram.reset,(SLAVE)avl_dmem.reset,(SLAVE)pio_led.reset,(SLAVE)pio_hex_3_2.reset,(SLAVE)bld_id.reset) 1 1 2 310 660 490
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)de1soc_qsys.reset,(SLAVE)clk.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)de1soc_qsys.clk,(SLAVE)clk.clk_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)de1soc_qsys.sdram,(SLAVE)sdram.wire) 1 0 3 NJ 940 NJ 940 NJ
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)de1soc_qsys.pio_hex_3_2,(SLAVE)pio_hex_3_2.external_connection) 1 0 3 NJ 500 NJ 500 NJ
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)clk_sdram.in_clk,(SLAVE)de1soc_qsys.clk_sdram) 1 0 1 NJ
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)bld_id.external_connection,(SLAVE)de1soc_qsys.bld_id) 1 0 3 NJ 60 NJ 60 NJ
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)pio_hex_5_4.external_connection,(SLAVE)de1soc_qsys.pio_hex_5_4) 1 0 3 NJ 560 NJ 560 NJ
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)de1soc_qsys.avl_imem,(SLAVE)avl_imem.s0) 1 0 2 NJ 740 NJ
+preplace netloc FAN_OUT<net_container>de1soc_qsys</net_container>(SLAVE)pio_sw.clk,(SLAVE)avl_dmem.clk,(SLAVE)avl_imem.clk,(SLAVE)pio_hex_1_0.clk,(SLAVE)pio_hex_5_4.clk,(MASTER)clk.clk,(SLAVE)onchip_ram.clk1,(SLAVE)default_slave.clk,(SLAVE)avl_uart.clk,(SLAVE)bld_id.clk,(SLAVE)pio_hex_3_2.clk,(SLAVE)pio_led.clk) 1 1 2 290 680 470
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(MASTER)avl_uart.m0,(MASTER)de1soc_qsys.uart) 1 3 1 N
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)de1soc_qsys.avl_dmem,(SLAVE)avl_dmem.s0) 1 0 2 NJ 620 NJ
+preplace netloc EXPORT<net_container>de1soc_qsys</net_container>(SLAVE)pio_led.external_connection,(SLAVE)de1soc_qsys.pio_led) 1 0 3 NJ 780 NJ 780 NJ
+levelinfo -pg 1 0 80 730
+levelinfo -hier de1soc_qsys 90 120 340 520 670
